@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Principal</title>
+   
+    <link rel="stylesheet" href="{% static 'pages/css/styles02.css' %}"> 
+</head>
+<body>
+    <div class="main-content">
+        </div>
+    <div class="container">
+        <h1 class="text-center">PAINEL PRINCIPAL</h1>
+        <p>Bem-vindo, {{ user.username }}!</p>
+        <a  href="{% url 'ordem_servico_registro' %}">Criar ordem de serviço</a>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+    </div>
+    <footer>
+        &copy; 2024 Drop Jet altomotiva. Todos os direitos reservados.
+    </footer>
+</body>
+</html>

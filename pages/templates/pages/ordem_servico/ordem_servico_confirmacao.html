@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordem de Serviço Criada</title>
+</head>
+<body>
+    <h1>Ordem de Serviço Criada com Sucesso!</h1>
+    <p>A Ordem de Serviço foi criada com sucesso.</p>
+    <a href="{% url 'historico_ordem_servico' %}" class="btn btn-primary">Ver Histórico de Ordem de Serviço</a>
+    <a href="{% url 'ordem_servico_registro' %}" class="btn btn-secondary">Voltar para a Página Principal</a>
+</body>
+</html>

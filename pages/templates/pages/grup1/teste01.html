@@ -1,0 +1,79 @@
+<DOCTYPE! HTML>
+<HTML>
+<HEAD>
+	<meta charset="utf-8">
+	<meta name="viewport" Content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+	res="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+	<style>
+	body{
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	}
+	p{
+		font-size: 90px;
+		font-family: times new roman
+	}
+	html{
+		background-color:#ffb6c1;
+	}
+	section{
+		width:200px;
+		margin:0 auto;
+		
+		padding:0 20px 20px 20px;
+		border: 5px solid black;
+	}
+	img{
+		display:block;
+		margin:0 auto;
+	}
+	</style>
+
+</HEAD>
+<body class="bg-dark text-light">
+<img src="https://images.vexels.com/media/users/3/144097/isolated/lists/3dedcd235214cdde6b4e171fdbf66c9d-icone-de-coracao.png">
+	<section>
+		<p>Cuzinho hj amor? </p>
+		<div class="d-flex justify-content-around">
+			<button id="yes" class="btn btn-light"
+			onclick="window.location.href=' principal '">
+			Sim
+			</button>
+			<button id="no" class="btn btn-light'">
+			Nao
+			</button>
+			<img src="https://images.vexels.com/media/users/3/197637/isolated/lists/b063b4d5c931673d73586ca734b8d89e-dia-dos-namorados-tres-coracoes-rosa.png">		
+		</div>
+	</section>
+
+	<script>
+
+	document.querySelector('#no').addEventListener
+	("mouseover", function() {
+
+		let h=window.innerHeight -50;
+		let w=window.innerWidth - 50;
+		this.style.position="absolute"
+		this.style.top=Math.random()*h+"px"
+		this.style.left=Math.random()*w+"px"
+
+
+
+
+	})
+
+	</script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bunble.min.js" 
+	integrity="sha384-MrcW6ZMFYlzcLA8N1+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin+"anonymous"></script>
+
+
+</body>
+</HTML>

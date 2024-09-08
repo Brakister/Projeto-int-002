@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página Inicial</title>
+    <!--<link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">  -->
+    <link rel="stylesheet" href="{% static 'pages/css/styles01.css' %}">
+</head>
+<body>
+    <div class="container">
+    <h1>Bem-vindo à Página Inicial!</h1>
+    {% if user.is_authenticated %}
+        <p>Olá, {{ user.username }}!</p>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <p>Você não está logado. <a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
+    <a href="{% url 'principal' %}">Ir para a Página principal</a>
+    </div>
+</body>
+</html
