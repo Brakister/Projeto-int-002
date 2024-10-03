@@ -6,6 +6,7 @@ from .forms import OrdemServicoForm
 from .models import EmissaoOrdemServico
 from openpyxl import Workbook
 from django.http import HttpResponse
+import os
 
 def home(request):
     if request.user.is_authenticated:
