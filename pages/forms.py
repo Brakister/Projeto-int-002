@@ -1,5 +1,5 @@
 from django import forms
-from .models import Loja, Servico
+from .models import Loja, Servico, OrdemServico  # Certifique-se de importar o modelo OrdemServico
 from django.contrib.auth.models import User
 
 class OrdemServicoForm(forms.Form):
@@ -11,12 +11,24 @@ class OrdemServicoForm(forms.Form):
         queryset=Servico.objects.all(),
         widget=forms.Select(attrs={'class': 'form-control'})
     )
+    numero_os = forms.CharField(  # Campo para o número da OS
+        max_length=20,
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Número da OS'})
+    )
 
 def salvar_ordem_servico(request, form):
     if form.is_valid():
         loja = form.cleaned_data['loja']
         servico = form.cleaned_data['servico']
-        # Adicione aqui a lógica para salvar a ordem de serviço
+        numero_os = form.cleaned_data['numero_os']  # Captura o número da OS
+        
+        # Cria a nova ordem de serviço e salva no banco de dados
+        ordem_servico = OrdemServico(
+            loja=loja,
+            servico=servico,
+            numero_os=numero_os
+        )
+        ordem_servico.save()  # Salva a ordem de serviço
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
