@@ -19,6 +19,7 @@ class Servico(models.Model):
 
 
 class EmissaoOrdemServico(models.Model):
+    numero_os = models.CharField(max_length=20)
     empresa = models.CharField(max_length=100)
     servico = models.CharField(max_length=100)
     produto = models.CharField(max_length=100)

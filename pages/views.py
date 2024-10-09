@@ -67,8 +67,12 @@ def historico_ordem_servico(request, mes=None):
         ordens_servico = EmissaoOrdemServico.objects.all()
         mes = 1 
         ordens_servico = EmissaoOrdemServico.objects.filter(data__month=mes)
-    return render(request, 'pages/ordem_servico/historico_ordem_servico.html', {'ordens_servico': ordens_servico, 'mes': mes})
-   
+
+    return render(request, 'pages/ordem_servico/historico_ordem_servico.html', {
+        'ordens_servico': ordens_servico,
+        'mes': mes
+    })
+
 def emitir_planilha(request, mes, ano):
     
     ordens_servico = EmissaoOrdemServico.objects.filter(data__month=mes, data__year=ano)
