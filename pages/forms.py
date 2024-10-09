@@ -1,5 +1,6 @@
 from django import forms
 from .models import Loja, Servico
+from django.contrib.auth.models import User
 
 class OrdemServicoForm(forms.Form):
     loja = forms.ModelChoiceField(
@@ -16,3 +17,10 @@ def salvar_ordem_servico(request, form):
         loja = form.cleaned_data['loja']
         servico = form.cleaned_data['servico']
         # Adicione aqui a lógica para salvar a ordem de serviço
+
+class UserRegistrationForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = ['username', 'password']

@@ -1,7 +1,57 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    background-color: #222; /* Fundo escuro */
+    color: #f8f9fa; /* Texto claro */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+select {
+    width: 40%;
+    padding: 10px;
+    margin: 20px 0; /* Espaçamento ao redor do select */
+    border: 2px solid #e12622; /* Borda do select */
+    border-radius: 4px;
+    background-color: #333; /* Fundo do select */
+    color: #fff; /* Texto do select */
+}
+
+a {
+    display: inline-block; /* Para o botão de download */
+    margin: 10px 0; /* Espaçamento ao redor do link */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    background-color: #e12622; /* Fundo do botão */
+    color: white; /* Texto do botão */
+    text-decoration: none; /* Remove sublinhado */
+    border-radius: 4px; /* Cantos arredondados */
+    text-align: center; /* Centraliza o texto */
+}
+
+ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o padding padrão */
+}
+
+li {
+    background-color: #333; /* Fundo dos itens da lista */
+    margin: 5px 0; /* Espaçamento entre os itens */
+    padding: 10px; /* Espaçamento interno dos itens */
+    border-radius: 4px; /* Cantos arredondados dos itens */
+}
+ 
+    </style>
+
+
+
     <meta charset="UTF-8">
     <title>Histórico de Ordem de Serviço</title>
 </head>
@@ -32,6 +82,7 @@
             <li>Nenhuma Ordem de Serviço encontrada.</li>
         {% endfor %}
     </ul>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Voltar para a Página Principal</a>
      
 </body>
 </html>

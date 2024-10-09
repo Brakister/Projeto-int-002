@@ -2,11 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
-from .forms import OrdemServicoForm
+from .forms import OrdemServicoForm, UserRegistrationForm
 from .models import EmissaoOrdemServico
 from openpyxl import Workbook
 from django.http import HttpResponse
-import os
 
 def home(request):
     if request.user.is_authenticated:
@@ -37,7 +36,7 @@ def historico_ordem_servico(request, mes=None):
         ordens_servico = EmissaoOrdemServico.objects.filter(data__month=mes)
     else:
         ordens_servico = EmissaoOrdemServico.objects.all()
-    return render(request, 'ordem_servico/historico_ordem_servico.html', {'ordens_servico': ordens_servico})
+    return render(request, 'pages/ordem_servico/historico_ordem_servico.html', {'ordens_servico': ordens_servico})
 
 def baixar_excel(request, mes):
     
@@ -93,3 +92,12 @@ def profile(request):
 def proposta(request):
     return render(request, 'pages/grup1/teste01.html')
 
+def register(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redireciona para a página de login
+    else:
+        form = UserRegistrationForm()
+    return render(request, 'pages/registration/register.html', {'form': form})

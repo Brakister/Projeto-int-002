@@ -1,29 +1,31 @@
 {% load static %}
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Principal</title>
-   
-    <link rel="stylesheet" href="{% static 'pages/css/styles02.css' %}"> 
+    <title>Página Principal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">
 </head>
-<body>
-    <div class="main-content">
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h1 class="text-center">Página Principal</h1>
+        <div class="card bg-secondary text-light">
+            <div class="card-body">
+                <h5 class="card-title">Bem-vind, {{ request.user.username }}!!</h5>
+                <p>Utilize os links abaixo para navegar:</p>
+                <div class="text-center">
+                    <a href="{% url 'ordem_servico_registro' %}" class="btn btn-primary mt-3">Criar Ordem de Serviço</a>
+                    <a href="{% url 'historico_ordem_servico' %}" class="btn btn-info mt-3">Ver Histórico de Ordem de Serviço</a>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
         </div>
-    <div class="container">
-        <h1 class="text-center">PAINEL PRINCIPAL</h1>
-        <p>Bem-vindo, {{ user.username }}!</p>
-        <a  href="{% url 'ordem_servico_registro' %}">Criar ordem de serviço</a>
-        <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
     </div>
-    </div>
-    <footer>
-        &copy; 2024 Drop Jet altomotiva. Todos os direitos reservados.
-    </footer>
 </body>
 </html>

@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Ordem de Serviço</title>
-    <link rel="stylesheet" href="{% static 'pages/css/styles02.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">
 </head>
-<body>
+<body class="bg-dark text-light">
     <nav class="navbar">
         <a class="navbar-brand" href="#">Ordem de Serviço</a>
     </nav>
@@ -25,7 +26,10 @@
                     {% endif %}
                 </div>
             {% endfor %}
-            <button type="submit" class="btn btn-primary">Criar Ordem de Serviço</button>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Criar Ordem de Serviço</button>
+                <a href="{% url 'historico_ordem_servico' %}" class="btn btn-primary">Ver Histórico de Ordem de Serviço</a>
+            </div>
         </form>
     </div>
     <footer>

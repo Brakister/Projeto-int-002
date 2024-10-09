@@ -3,16 +3,25 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="{% static 'pages/css/styles01.css' %}"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">
 </head>
-<body>
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h1 class="text-center">Login</h1>
+        <div class="card bg-secondary text-light">
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <p>Ainda não tem uma conta? <a href="{% url 'register' %}">Registre-se aqui</a></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 

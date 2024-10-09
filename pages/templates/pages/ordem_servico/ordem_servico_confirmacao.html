@@ -2,15 +2,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">
+    <style>
+        body {
+    text-align: center; /* Centraliza o texto */
+    padding: 20px; /* Adiciona um pouco de padding */
+}
+
+h1 {
+    font-size: 2.5rem; /* Aumenta o tamanho da fonte do título */
+    color: #28a745; /* Cor verde para destacar */
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+.btn {
+    margin: 10px; /* Espaçamento entre os botões */
+    padding: 10px 20px; /* Aumenta o padding dos botões */
+}
+
+    </style>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ordem de Serviço Criada</title>
 </head>
 <body>
-    <h1>Ordem de Serviço Criada com Sucesso!</h1>
+    <h1 class="text-success">Ordem de Serviço Criada com Sucesso!</h1>
     <p>A Ordem de Serviço foi criada com sucesso.</p>
     <a href="{% url 'historico_ordem_servico' %}" class="btn btn-primary">Ver Histórico de Ordem de Serviço</a>
-    <a href="{% url 'ordem_servico_registro' %}" class="btn btn-secondary">Voltar para a Página Principal</a>
+    <a href="{% url 'ordem_servico_registro' %}" class="btn btn-secondary">Registrar outra Ordem de Serviço</a>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Voltar para a Pagina Principal</a>
 </body>
+
 </html>

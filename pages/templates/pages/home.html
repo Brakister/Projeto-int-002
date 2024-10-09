@@ -1,24 +1,33 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial</title>
-    <!--<link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">  -->
-    <link rel="stylesheet" href="{% static 'pages/css/styles01.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">-->
+    <link rel="stylesheet" href="{% static 'pages/css/styles.css' %}">
+
 </head>
-<body>
-    <div class="container">
-    <h1>Bem-vindo à Página Inicial!</h1>
-    {% if user.is_authenticated %}
-        <p>Olá, {{ user.username }}!</p>
-        <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
-    {% else %}
-        <p>Você não está logado. <a href="{% url 'login' %}">Login</a></p>
-    {% endif %}
-    <a href="{% url 'principal' %}">Ir para a Página principal</a>
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <div class="card text-center bg-secondary">
+            <div class="card-body">
+                <h1 class="card-title">Bem-vindo à Página Inicial!</h1>
+                {% if user.is_authenticated %}
+                    <p>Olá, {{ user.username }}!</p>
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                    <a href="{% url 'ordem_servico_registro' %}" class="btn btn-primary mt-3">Criar Ordem de Serviço</a>
+                {% else %}
+                    <p>Você não está logado. <a href="{% url 'login' %}" class="btn btn-primary">Login</a></p>
+                {% endif %}
+                <a href="{% url 'principal' %}" class="btn btn-light mt-3">Ir para a Página Principal</a>
+            </div>
+        </div>
     </div>
 </body>
-</html
+</html>

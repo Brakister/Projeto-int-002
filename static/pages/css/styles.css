@@ -1,0 +1,130 @@
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Fundo escuro */
+    color: #e0e0e0; /* Texto claro */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    text-align: left;
+}
+
+/* Estilo dos campos de formulário */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px;
+    display: block;
+    border: 2px solid #424242; /* Bordas escuras */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #1e1e1e; /* Fundo dos campos */
+    color: #e0e0e0; /* Texto claro nos campos */
+}
+
+.form-control:focus {
+    border-color: #f35d5a; /* Cor de foco */
+    outline: none; /* Remove outline padrão */
+}
+
+/* Estilo dos botões */
+.btn {
+    background-color: #f35d5a; /* Cor de fundo dos botões */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #e12622; /* Cor do botão primário */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #424242; /* Fundo escuro da navbar */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar a {
+    color: #e0e0e0; /* Cor dos links da navbar */
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background-color: #424242; /* Fundo escuro do footer */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+
+/* Estilo dos cabeçalhos */
+h1 {
+    color: #f35d5a; /* Cor dos cabeçalhos */
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.form-group input {
+    display: block;
+    width: 100%;
+}
+
+/* Links */
+a {
+    color: #f35d5a; /* Cor dos links */
+}
+
+a:hover {
+    text-decoration: underline; /* Efeito ao passar o mouse */
+}
+.logout-form {
+    display: inline-block; /* Permite que o formulário se comporte como um botão */
+    margin-top: 20px; /* Espaço acima do botão */
+}
+
+.logout-btn {
+    background-color: #dc3545; /* Cor de fundo do botão de logout */
+    color: white; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border: none; /* Sem borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    cursor: pointer; /* Mudança de cursor para indicar que é clicável */
+    
+    transition: background-color 0.3s ease; /* Efeito de transição para mudança de cor */
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Cor de fundo ao passar o mouse */
+}
