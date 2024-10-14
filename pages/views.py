@@ -20,8 +20,9 @@ def criar_ordem_servico(request):
         if form.is_valid():
             empresa = form.cleaned_data['loja']
             servico = form.cleaned_data['servico']
-            numero_os = form.cleaned_data['numero_os']         
-            EmissaoOrdemServico.objects.create(empresa=empresa, servico=servico, numero_os=numero_os)
+            numero_os = form.cleaned_data['numero_os'] 
+            user = request.user
+            EmissaoOrdemServico.objects.create(empresa=empresa, servico=servico, numero_os=numero_os, usuario=user)
             return redirect('ordem_servico_confirmacao') # Redirecione para a página de confirmação
     else:
         form = OrdemServicoForm()
@@ -43,14 +44,14 @@ def baixar_excel(request, mes):
     
     wb = Workbook()
     ws = wb.active 
-    ws.append(['Numero Os','Empresa', 'Serviço', 'Data'])
+    ws.append(['Numero Os','Empresa', 'Serviço', 'Data', 'Usuario'])
 
     
     ordens_servico = EmissaoOrdemServico.objects.filter(data__month=mes)
     for ordem in ordens_servico:
         
         data_sem_fuso_horario = ordem.data.replace(tzinfo=None)
-        ws.append([ordem.numero_os, ordem.empresa, ordem.servico, data_sem_fuso_horario])
+        ws.append([ordem.numero_os, ordem.empresa, ordem.servico, data_sem_fuso_horario, ordem.usuario.username])
 
     
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
