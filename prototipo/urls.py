@@ -20,10 +20,10 @@ from django.contrib.auth import views as auth_views
 import time 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),# Adiciona as URLs do painel de administração
     path('', include('pages.urls')),  #inclui as urls so app pages
-    path('login', auth_views.LoginView.as_view(template_name='pages/registration/login.html'), name='login'),
-    path('logout', auth_views.LogoutView.as_view(next_page=''), name='logout'),
+    path('login', auth_views.LoginView.as_view(template_name='pages/registration/login.html'), name='login'),# Adiciona a URL de login
+    path('logout', auth_views.LogoutView.as_view(next_page=''), name='logout'),# Adiciona a URL de logout
 ]
 
 
