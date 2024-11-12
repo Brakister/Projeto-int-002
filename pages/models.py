@@ -2,14 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Loja(models.Model):
+class Loja(models.Model):#tabela loja com os campos codigo e nome
     codigo = models.CharField(max_length=10, unique=True)
     nome = models.CharField(max_length=100)
 
     def __str__(self):
         return self.nome
 
-class Servico(models.Model):
+class Servico(models.Model):#tabela servico com os campos codigo, nome, preco_min e preco_max
     codigo = models.CharField(max_length=10, unique=True)
     nome = models.CharField(max_length=100)
     preco_min = models.DecimalField(max_digits=10, decimal_places=2)
@@ -19,7 +19,7 @@ class Servico(models.Model):
         return self.codigo
 
 
-class EmissaoOrdemServico(models.Model):
+class EmissaoOrdemServico(models.Model):#tabela emissao_ordem_servico com os campos nome, numero_os, empresa, servico, produto, data e usuario
     numero_os = models.CharField(max_length=20)
     empresa = models.CharField(max_length=100)
     servico = models.CharField(max_length=100)

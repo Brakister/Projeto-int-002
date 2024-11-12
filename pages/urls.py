@@ -6,7 +6,7 @@ from pages import views as ordem_servico_views  # Importa as views do aplicativo
 from pages import views
 from django.contrib import admin  # Importa o módulo admin
 
-urlpatterns = [
+urlpatterns = [# Lista de URLs do aplicativo pages e seus respectivos nomes
     path('', views.home, name='home'),
     
     #path('logout', views.logout, name='logout'), 

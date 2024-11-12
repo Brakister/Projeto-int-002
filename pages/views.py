@@ -7,14 +7,14 @@ from .models import EmissaoOrdemServico
 from openpyxl import Workbook
 from django.http import HttpResponse
 
-def home(request):
+def home(request):# Função para exibir a página inicial e utilizar o formulário de login
     if request.user.is_authenticated:
         return redirect('principal')
     return render(request, 'pages/home.html')
 def login(request):
     return render(request, 'pages/registration/login.html')
 @login_required
-def criar_ordem_servico(request):
+def criar_ordem_servico(request):# Função para criar uma ordem de serviço
     if request.method == 'POST':
         form = OrdemServicoForm(request.POST)
         if form.is_valid():
@@ -30,7 +30,7 @@ def criar_ordem_servico(request):
 
 
 @login_required
-def principal(request):
+def principal(request):# Função para exibir a página principal
     return render(request, 'pages/principal.html')
 
 def historico_ordem_servico(request, mes=None):
@@ -40,7 +40,7 @@ def historico_ordem_servico(request, mes=None):
         ordens_servico = EmissaoOrdemServico.objects.all()
     return render(request, 'pages/ordem_servico/historico_ordem_servico.html', {'ordens_servico': ordens_servico})
 
-def baixar_excel(request, mes):
+def baixar_excel(request, mes):# Função para baixar um arquivo excel com as ordens de serviço
     
     wb = Workbook()
     ws = wb.active 
@@ -62,7 +62,7 @@ def baixar_excel(request, mes):
 
     return response
 
-def historico_ordem_servico(request, mes=None):
+def historico_ordem_servico(request, mes=None):# Função para exibir o histórico de ordens de serviço
     if mes and 1 <= 12:
         ordens_servico = EmissaoOrdemServico.objects.filter(data__month=mes)
     else:
@@ -75,7 +75,7 @@ def historico_ordem_servico(request, mes=None):
         'mes': mes
     })
 
-def emitir_planilha(request, mes, ano):
+def emitir_planilha(request, mes, ano):# Função para emitir uma planilha de ordens de serviço
     
     ordens_servico = EmissaoOrdemServico.objects.filter(data__month=mes, data__year=ano)
 
@@ -90,7 +90,7 @@ def emitir_planilha(request, mes, ano):
     return HttpResponse(planilha, content_type='text/plain')
     return response
 
-def ordem_servico_confirmacao(request):
+def ordem_servico_confirmacao(request):# Função para exibir a página de confirmação
     return render(request, 'pages/ordem_servico/ordem_servico_confirmacao.html')
 
 def profile(request):
@@ -98,7 +98,7 @@ def profile(request):
 def proposta(request):
     return render(request, 'pages/grup1/teste01.html')
 
-def register(request):
+def register(request):# Função para registrar um novo usuário
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
